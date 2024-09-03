@@ -1,1 +1,5 @@
+# Ignore .DS_Store files (common on macOS)
 .DS_Store
+
+# Ignore .gitignore files (prevents them from being committed)
+.gitignore
