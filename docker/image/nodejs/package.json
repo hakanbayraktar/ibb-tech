@@ -1,0 +1,15 @@
+{
+  "name": "dockerexample",
+  "version": "1.0.0",
+  "description": "A simple Docker example with Node.js",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "Your Name",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
+
