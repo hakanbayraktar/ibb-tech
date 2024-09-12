@@ -31,11 +31,11 @@ nodes:
 - role: worker
 EOF
 
---- Create a kind cluster with config.yaml
+### Create a kind cluster with config.yaml
 kind create cluster --config kind-config.yaml
 
---- check nodes
+###  check nodes
 kubectl get nodes
--- create a nginx pod
+###  create a nginx pod
 kubectl run nginx --image=nginx
 kubectl get pod
