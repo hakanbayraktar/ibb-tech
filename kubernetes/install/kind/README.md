@@ -21,7 +21,7 @@ kubectl version --client
 
 # Step 4-Create kind cluster 
 
---- Create a kind config yaml
+### Create a kind config yaml
 cat <<EOF > kind-config.yaml
 kind: Cluster
 apiVersion: kind.x-k8s.io/v1alpha4
