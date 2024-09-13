@@ -32,7 +32,7 @@ nodes:
 - role: worker
 - role: worker
 EOF
-
+```bash
 ### Create a kind cluster with config.yaml
 kind create cluster --config kind-config.yaml
 
