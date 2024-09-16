@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nginx
+  strategy:
+    type: Recreate  # Eski pod'lar tamamen durdurulur, yeni pod'lar başlatılır
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:1.19  # Güncellenmiş image
+        ports:
+        - containerPort: 80

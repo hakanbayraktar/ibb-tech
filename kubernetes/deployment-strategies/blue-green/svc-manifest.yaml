@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: echoapp-svc
+spec:
+  selector:
+    app: echo-application
+    env: blue
+  ports:
+  - name: http
+    port: 80
+    targetPort: 80
+  type: NodePort
