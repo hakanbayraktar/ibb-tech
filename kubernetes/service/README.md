@@ -115,7 +115,7 @@ spec:
 ```
 # 3. LoadBalancer Servisi
 loadbalancer.yaml
-'''bash
+```bash 
 apiVersion: v1
 kind: ConfigMap
 metadata:
