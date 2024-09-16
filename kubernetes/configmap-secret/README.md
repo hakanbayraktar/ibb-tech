@@ -8,7 +8,8 @@ metadata:
   name: wordpress-config
 data:
   WORDPRESS_DB_NAME: wordpress
-
+```
+```bash 
 kubectl apply -f configmap.yaml
 ```
 # 2. Secret Manifest
@@ -23,7 +24,8 @@ data:
   MYSQL_ROOT_PASSWORD: cGFzc3dvcmQ=   # base64 encoded "password"
   MYSQL_USER: d29yZHByZXNz   # base64 encoded "wordpress"
   MYSQL_PASSWORD: cGFzc3dvcmQ=   # base64 encoded "password"
-
+```
+```bash 
 kubectl apply -f secret.yaml
 ```
 # 3. MySQL Deployment
@@ -71,7 +73,8 @@ spec:
         ports:
         - containerPort: 3306
           name: mysql
-
+```
+```bash 
 kubectl apply -f mysql-deployment.yaml
 ```
 # 4. WordPress Deployment
@@ -115,7 +118,8 @@ spec:
         ports:
         - containerPort: 80
           name: wordpress
-
+```
+```bash  
 kubectl apply -f wordpress-deployment.yaml
 ```
 # 5. Service Manifestleri
@@ -130,8 +134,9 @@ spec:
   - port: 3306
   selector:
     app: mysql
-
+```
 --- wordpress-service.yaml
+```bash 
 apiVersion: v1
 kind: Service
 metadata:
@@ -142,10 +147,12 @@ spec:
   selector:
     app: wordpress
   type: LoadBalancer
-
+```
+```bash 
 kubectl apply -f mysql-service.yaml
 kubectl apply -f wordpress-service.yaml
 ```
 # 6. WordPress Versiyonunu Güncelleme
 ```bash 
-kubectl set image deployment/wordpress wordpress=wordpress:php8.0-apache```
+kubectl set image deployment/wordpress wordpress=wordpress:php8.0-apache
+```
