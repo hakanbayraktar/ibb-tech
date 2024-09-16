@@ -190,4 +190,4 @@ spec:
 kubectl apply -f html-vol.yaml
 kubectl apply -f deployment-writer.yaml
 kubectl apply -f deployment-reader.yaml
-```bash 
+```
