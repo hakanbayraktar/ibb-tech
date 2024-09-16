@@ -50,7 +50,6 @@ spec:
 kubectl apply -f pod-resourcequota.yaml
 ```
 **requests:** Container'ın ihtiyaç duyduğu minimum kaynaklar (planlama için kullanılır).   
-
 **limits:** Container'ın kullanabileceği maksimum kaynaklar.
 Bu örnekte:  
 Pod, minimum 128MiB RAM ve 250m CPU isteğinde bulunur.
