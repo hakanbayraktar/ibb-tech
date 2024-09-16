@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: init-container-pod
+spec:
+  initContainers:
+  - name: init-scripts
+    image: busybox
+    command: ['sh', '-c', 'echo Init Container Completed']
+  containers:
+  - name: nginx
+    image: nginx:latest
+    ports:
+    - containerPort: 80
