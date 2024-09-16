@@ -1,6 +1,6 @@
 1. ClusterIP Servisi
 clusterip.yaml
-'''bash
+```bash 
 apiVersion: v1
 kind: ConfigMap
 metadata:
@@ -54,10 +54,10 @@ spec:
     - protocol: TCP
       port: 80
   type: ClusterIP
-'''
+```
 # 2. NodePort Servisi
 nodeport.yaml
-'''bash
+```bash 
 apiVersion: v1
 kind: ConfigMap
 metadata:
@@ -170,11 +170,11 @@ spec:
     - protocol: TCP
       port: 80
   type: LoadBalancer
-'''
+```
 # 4. ExternalName Servisi
 externalname.yaml
 
-'''bash
+```bash 
 apiVersion: v1
 kind: ConfigMap
 metadata:
@@ -224,16 +224,16 @@ metadata:
 spec:
   type: ExternalName
   externalName: example.com
-'''
+```
 ## Manifest Dosyalarını Uygula:
-'''bash
+```bash 
 kubectl apply -f clusterip.yaml
 kubectl apply -f nodeport.yaml
 kubectl apply -f loadbalancer.yaml
 kubectl apply -f externalname.yaml
-'''
+```
 
 ## Servisleri Kontrol Et:
-'''bash
+```bash 
 kubectl get services
-'''
+```
