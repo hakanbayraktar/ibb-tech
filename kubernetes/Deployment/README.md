@@ -34,7 +34,7 @@ kubectl apply -f nginx-deployment.yaml
 kubectl rollout status deployment/nginx-deployment
 ```
 # Step 3. Güncelleme: set image
-## Şimdi, nginx:1.17 sürümünü nginx:1.19 sürümüne güncelleyelim.
+Şimdi, nginx:1.17 sürümünü nginx:1.19 sürümüne güncelleyelim.
 ```bash 
 kubectl set image deployment/nginx-deployment nginx=nginx:1.19 --record
 ```
@@ -49,7 +49,7 @@ kubectl rollout undo deployment/nginx-deployment
 ```
 Bu komut, nginx:1.17 sürümüne geri dönecektir.
 
-### Rollout History
+## Rollout History
 Tüm güncellemelerin geçmişini görmek için:
 ```bash 
 kubectl rollout history deployment/nginx-deployment
@@ -88,7 +88,7 @@ spec:
 ```bash 
 kubectl apply -f rollingupdate.yaml
 ```
-### Recreate Stratejisi
+## Recreate Stratejisi
 --- recreate.yaml
 ```bash 
 apiVersion: apps/v1
