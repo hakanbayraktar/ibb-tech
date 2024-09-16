@@ -1,4 +1,4 @@
-1. ClusterIP Servisi
+# 1. ClusterIP Servisi
 clusterip.yaml
 ```bash 
 apiVersion: v1
@@ -112,8 +112,7 @@ spec:
       port: 80
       nodePort: 30001
   type: NodePort
-
-'''
+```
 # 3. LoadBalancer Servisi
 loadbalancer.yaml
 '''bash
