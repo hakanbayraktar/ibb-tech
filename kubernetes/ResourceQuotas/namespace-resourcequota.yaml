@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ResourceQuota
+metadata:
+  name: example-quota
+  namespace: my-namespace
+spec:
+  hard:
+    requests.cpu: "4"           # Tüm pod'lar için toplam CPU isteği
+    requests.memory: "8Gi"      # Tüm pod'lar için toplam bellek isteği
+    limits.cpu: "8"             # Tüm pod'lar için toplam CPU sınırı
+    limits.memory: "16Gi"       # Tüm pod'lar için toplam bellek sınırı

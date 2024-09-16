@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: fluent-bit-config
+  namespace: logging
+data:
+  fluent-bit.conf: |
+    [SERVICE]
+        Flush        1
+        Daemon       Off
+        Log_Level    info
+
+    [INPUT]
+        Name         tail
+        Path         /var/log/*.log
+        Tag          kube.*
+        Refresh_Interval 5
+
+    [OUTPUT]
+        Name         stdout
+        Match        *
