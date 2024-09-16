@@ -1,6 +1,7 @@
 # 1. ConfigMap Manifest
 
 --configmap.yaml
+```bash 
 apiVersion: v1
 kind: ConfigMap
 metadata:
@@ -9,8 +10,10 @@ data:
   WORDPRESS_DB_NAME: wordpress
 
 kubectl apply -f configmap.yaml
+```
 # 2. Secret Manifest
 -- secret.yaml
+```bash 
 apiVersion: v1
 kind: Secret
 metadata:
@@ -22,9 +25,11 @@ data:
   MYSQL_PASSWORD: cGFzc3dvcmQ=   # base64 encoded "password"
 
 kubectl apply -f secret.yaml
+```
 # 3. MySQL Deployment
 
 --- mysql-deployment.yaml
+```bash 
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -68,8 +73,10 @@ spec:
           name: mysql
 
 kubectl apply -f mysql-deployment.yaml
+```
 # 4. WordPress Deployment
 --- wordpres-deployment.yaml
+```bash 
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -108,11 +115,12 @@ spec:
         ports:
         - containerPort: 80
           name: wordpress
-kubectl apply -f wordpress-deployment.yaml
 
+kubectl apply -f wordpress-deployment.yaml
+```
 # 5. Service Manifestleri
 -- mysql-service.yaml
-
+```bash 
 apiVersion: v1
 kind: Service
 metadata:
@@ -137,7 +145,7 @@ spec:
 
 kubectl apply -f mysql-service.yaml
 kubectl apply -f wordpress-service.yaml
-
-6. WordPress Versiyonunu Güncelleme
-
-kubectl set image deployment/wordpress wordpress=wordpress:php8.0-apache
+```
+# 6. WordPress Versiyonunu Güncelleme
+```bash 
+kubectl set image deployment/wordpress wordpress=wordpress:php8.0-apache```
