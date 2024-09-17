@@ -54,8 +54,9 @@ Tüm güncellemelerin geçmişini görmek için:
 ```bash 
 kubectl rollout history deployment/nginx-deployment
 ```
-```bash
+
 ## Sürüm 2'ye geri dönmek için şu komutu çalıştırın:
+```bash
 kubectl rollout undo deployment/nginx-deployment --to-revision=2
 ```
 # Step 5. Güncelleme Stratejileri
