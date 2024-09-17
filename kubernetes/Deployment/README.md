@@ -24,7 +24,7 @@ spec:
         - containerPort: 80
 
 ```
-## Deployment’ı kümenize uygulamak için:
+## Deployment’ı clusterınıza uygulamak için:
 ```bash 
 kubectl apply -f nginx-deployment.yaml
 ```
@@ -53,6 +53,10 @@ Bu komut, nginx:1.17 sürümüne geri dönecektir.
 Tüm güncellemelerin geçmişini görmek için:
 ```bash 
 kubectl rollout history deployment/nginx-deployment
+```
+```bash
+## Sürüm 2'ye geri dönmek için şu komutu çalıştırın:
+kubectl rollout undo deployment/nginx-deployment --to-revision=2
 ```
 # Step 5. Güncelleme Stratejileri
 Kubernetes’de iki ana güncelleme stratejisi bulunur: RollingUpdate ve Recreate.
