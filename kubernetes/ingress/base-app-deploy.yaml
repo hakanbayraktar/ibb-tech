@@ -1,0 +1,26 @@
+# base-app-deploy.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: example-app
+  labels:
+    app: example
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: example
+  template:
+    metadata:
+      labels:
+        app: example
+    spec:
+      containers:
+      - name: example-app
+        image: hashicorp/http-echo
+        args:
+        - "-text=Hello from Kubernetes"
+        ports:
+        - containerPort: 5678
+
+
