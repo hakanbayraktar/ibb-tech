@@ -8,7 +8,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-  - # host: canary.echo.pod.name.com
+  - host: canary.devopslearnwith.us
     http:
       paths:
       - pathType: Prefix
