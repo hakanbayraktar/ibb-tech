@@ -21,6 +21,10 @@ spec:
     limits.cpu: "8"             # Tüm pod'lar için toplam CPU sınırı
     limits.memory: "16Gi"       # Tüm pod'lar için toplam bellek sınırı
 ```
+# ResourceQuota bilgilerini görmek için
+```bash 
+kubectl get ResourceQuota -n my-namespace
+```
 ```bash 
 kubectl apply -f namespace-resourcequota.yaml
 ```
@@ -55,6 +59,9 @@ Bu örnekte:
 Pod, minimum 128MiB RAM ve 250m CPU isteğinde bulunur.
 Pod'un kullanabileceği maksimum RAM 256MiB ve maksimum CPU 500m'dir.
 
+```bash 
+kubectl get ResourceQuota -n my-namespace
+```
 # 3. Deployment için CPU ve RAM Kısıtlaması
 Bir deployment üzerinde CPU ve bellek kısıtlaması örneği:
 
@@ -93,3 +100,7 @@ Bu deployment, 3 replikalı bir uygulamayı başlatır ve her bir pod için kayn
 
 Minimum 128MiB RAM ve 250m CPU istenir.
 Maksimum 256MiB RAM ve 500m CPU kullanılır.
+
+```bash 
+kubectl get ResourceQuota -n my-namespace
+```
