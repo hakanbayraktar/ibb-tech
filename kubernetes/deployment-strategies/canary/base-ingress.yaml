@@ -12,6 +12,6 @@ spec:
         path: /
         backend:
           service:
-            name: base-svc
+            name: canary-svc 
             port:
               number: 80

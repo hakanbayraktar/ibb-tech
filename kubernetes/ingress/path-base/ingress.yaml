@@ -8,7 +8,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-    - host: test2.devopslearnwith.us  
+    - host: path.devopslearnwith.us  
       http:
         paths:
           - path: /app1   
