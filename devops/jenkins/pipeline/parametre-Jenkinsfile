@@ -1,0 +1,41 @@
+pipeline {
+    agent any
+
+    parameters {
+        choice(name: 'ENVIRONMENT', choices: ['Development', 'Staging', 'Production'], description: 'Hangi ortamda çalıştırmak istersiniz?')
+        choice(name: 'DEPLOY_OPTION', choices: ['Full Deploy', 'Incremental Deploy'], description: 'Deploy türünü seçin.')
+        string(name: 'VERSION', defaultValue: '1.0', description: 'Lütfen bir versiyon girin.')
+    }
+
+    stages {
+        stage('Build') {
+            steps {
+                echo "Seçilen ortam: ${params.ENVIRONMENT}"
+                echo "Deploy türü: ${params.DEPLOY_OPTION}"
+                echo "Seçilen versiyon: ${params.VERSION}"
+                // Burada build işlemleri yapılabilir
+            }
+        }
+
+        stage('Test') {
+            steps {
+                script {
+                    if (params.ENVIRONMENT == 'Development') {
+                        echo 'Development ortamında test ediliyor.'
+                    } else if (params.ENVIRONMENT == 'Staging') {
+                        echo 'Staging ortamında test ediliyor.'
+                    } else {
+                        echo 'Production ortamında test ediliyor.'
+                    }
+                }
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                echo "Deploy ediliyor: ${params.ENVIRONMENT} ortamına ${params.VERSION} versiyonu, Seçilen deploy türü: ${params.DEPLOY_OPTION}."
+                // Burada deploy işlemleri yapılabilir
+            }
+        }
+    }
+}

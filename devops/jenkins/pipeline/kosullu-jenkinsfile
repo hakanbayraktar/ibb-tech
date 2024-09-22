@@ -1,0 +1,64 @@
+pipeline {
+    agent any
+
+    parameters {
+        choice(name: 'ENVIRONMENT', choices: ['Development', 'Staging', 'Production'], description: 'Hangi ortamda çalıştırmak istersiniz?')
+        choice(name: 'DEPLOY_OPTION', choices: ['Full Deploy', 'Incremental Deploy'], description: 'Deploy türünü seçin.')
+        string(name: 'VERSION', defaultValue: '1.0', description: 'Lütfen bir versiyon girin.')
+    }
+
+    stages {
+        stage('Build') {
+            steps {
+                echo "Seçilen ortam: ${params.ENVIRONMENT}"
+                echo "Deploy türü: ${params.DEPLOY_OPTION}"
+                echo "Seçilen versiyon: ${params.VERSION}"
+                // Burada build işlemleri yapılabilir
+            }
+        }
+
+        stage('Test') {
+            steps {
+                script {
+                    if (params.ENVIRONMENT == 'Development') {
+                        echo 'Development ortamında test ediliyor.'
+                        // Development için test adımları
+                    } else if (params.ENVIRONMENT == 'Staging') {
+                        echo 'Staging ortamında test ediliyor.'
+                        // Staging için test adımları
+                    } else {
+                        echo 'Production ortamında test ediliyor.'
+                        // Production için test adımları
+                    }
+                }
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                script {
+                    if (params.DEPLOY_OPTION == 'Full Deploy') {
+                        echo "Tam deploy ediliyor: ${params.ENVIRONMENT} ortamına ${params.VERSION} versiyonu."
+                        // Tam deploy işlemleri
+                    } else {
+                        echo "Artımlı deploy ediliyor: ${params.ENVIRONMENT} ortamına ${params.VERSION} versiyonu."
+                        // Artımlı deploy işlemleri
+                    }
+                }
+            }
+        }
+
+        stage('Post-Deployment') {
+            steps {
+                script {
+                    if (params.ENVIRONMENT == 'Production' && params.DEPLOY_OPTION == 'Full Deploy') {
+                        echo 'Üretim ortamında tam deploy gerçekleştirildi. İzleme başlatılıyor.'
+                        // İzleme işlemleri
+                    } else {
+                        echo 'Deploy işlemi tamamlandı.'
+                    }
+                }
+            }
+        }
+    }
+}
