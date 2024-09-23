@@ -7,7 +7,7 @@ NC='\033[0m' # Renk yok
 # Paket dizinini güncelle ve gerekli paketleri kur
 echo -e "${PURPLE}Paket dizini güncelleniyor ve gerekli paketler kuruluyor...${NC}"
 sudo apt update
-sudo apt install -y openjdk-11-jdk maven
+sudo apt install -y openjdk-17-jdk maven
 
 # Jenkins depo anahtarını indir
 echo -e "${PURPLE}Jenkins depo anahtarı indiriliyor...${NC}"
