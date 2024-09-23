@@ -1,4 +1,25 @@
-#master-install.sh
+# 1. Seçenek Hızlı Kurulum
+# master kurulum
+```bash 
+curl -s https://raw.githubusercontent.com/hakanbayraktar/ibb-tech/refs/heads/main/kubernetes/install/native/master-install.sh | sudo bash
+```
+# worker kurulum
+```bash 
+curl -s https://raw.githubusercontent.com/hakanbayraktar/ibb-tech/refs/heads/main/kubernetes/install/native/worker-install.sh  | sudo bash
+```
+Aşağıda master ve worker kurulum scriplerinin ayrıntısını görebilirsiniz..
+curl ile master ve worker node kurulumu yaptıktan sonra 
+kubeadm join kurulumuna geçebilirsiniz
+# masterdaki aşağıdaki komuda benzer kubeadm join komutunu bulup worker node çalıştırın
+```bash 
+kubeadm join 64.227.115.113:6443 --token pv0hi1.z51rz7vka4mr64x9 \
+        --discovery-token-ca-cert-hash sha256:8e93267816f44b066e9fedff13cd794c983c6e28be7d0bf0a67072517a52543c
+```
+
+Eğer herşeyi kendiniz yapmak isterseniz
+# 2. seçenek manuel kurulum 
+
+# master-install.sh
 ```bash 
 #!/bin/bash
 
@@ -159,6 +180,7 @@ chmod +x worker-install.sh
 ```bash 
 sudo ./worker-install.sh
 ```
+
 # masterdaki aşağıdaki komuda benzer kubeadm join komutunu bulup worker node çalıştırın
 kubeadm join 64.227.115.113:6443 --token pv0hi1.z51rz7vka4mr64x9 \
         --discovery-token-ca-cert-hash sha256:8e93267816f44b066e9fedff13cd794c983c6e28be7d0bf0a67072517a52543c
