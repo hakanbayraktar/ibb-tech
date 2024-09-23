@@ -1,5 +1,5 @@
 #!/bin/bash
-export DEBIAN_FRONTEND=noninteractive
+
 # 1. Sistem güncellemesi ve yükseltme
 sudo apt update && sudo apt upgrade -y
 
@@ -33,7 +33,7 @@ sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmo
 
 # 7. Docker deposunu ekleme
 sudo add-apt-repository -y "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
-sudo apt update 
+sudo apt update
 
 # 8. Containerd kurma
 sudo apt install -y containerd.io
