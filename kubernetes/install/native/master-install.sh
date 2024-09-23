@@ -1,5 +1,5 @@
 #!/bin/bash
-
+export DEBIAN_FRONTEND=noninteractive
 # 1. Sistem güncellemesi ve yükseltme
 sudo apt update && sudo apt upgrade -y
 
