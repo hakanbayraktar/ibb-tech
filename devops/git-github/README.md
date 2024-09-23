@@ -91,7 +91,44 @@ git commit -m "Çatışma çözüldü ve birleştirildi"
 git push origin main
 ```
 *****************************************
+# Git Global Kullanıcı Bilgilerini Ayarlama
+## Git Kullanıcı Adı ve E-posta Bilgilerini Ayarlama
+İlk olarak, Git'e kim olduğunuzu tanıtmanız gerekir. Bu bilgi, Git commit'lerine yansır ve her commit'te görünen e-posta adresinizi ve kullanıcı adınızı belirtir.
 
+Kullanıcı adı ayarlamak:
+
+```bash
+git config --global user.name "Adınız Soyadınız"
+```
+Buradaki "Adınız Soyadınız" kısmına, GitHub kullanıcı adınızı veya kendi isminizi yazabilirsiniz. Bu bilgi, commit'lerde yer alacak "author" (yazar) bilgisini içerir.
+
+E-posta adresini ayarlamak:
+
+```bash
+git config --global user.email "you@example.com"
+```
+"you@example.com" kısmına GitHub hesabınızla ilişkilendirilmiş e-posta adresinizi yazın. Bu, commit'lerde yer alacak e-posta bilgisi olacaktır.
+
+Global Ayarları Kontrol Etme
+Global olarak ayarladığınız kullanıcı adı ve e-posta bilgilerini doğrulamak için şu komutu kullanabilirsiniz:
+
+```bash
+git config --global --list
+```
+Bu komut, Git'e daha önce girdiğiniz global ayarların bir listesini verir. Örneğin:
+user.name=Adınız Soyadınız
+user.email=you@example.com
+
+## Git Global Ayarlarının Anlamı
+Global Ayarlar: Bu ayarlar, bilgisayarınızdaki tüm Git repository'leri için geçerlidir. Yani, bu ayarlar bir kez yapıldığında, her Git projesinde bu bilgiler kullanılacaktır.
+
+Yerel (Local) Ayarlar: Her Git repository'si için farklı kullanıcı adı veya e-posta ayarları yapabilirsiniz. Örneğin, iş projeleri ve kişisel projelerde farklı e-posta adresleri kullanmak istiyorsanız, belirli bir repository için yerel ayarlar yapabilirsiniz. Yerel ayarları yapmak için şu komutu kullanabilirsiniz:
+
+```bash
+git config user.name "Yerel Ad"
+git config user.email "yerel@example.com"
+```
+Bu komutlar, sadece içinde bulunduğunuz repository için geçerli olur.
 # Git Credential Helper Kullanma
 Git, kimlik bilgilerinizi kaydedebilir. Bu, kullanıcı adı ve şifre sorulmasını önler. Aşağıdaki komutları terminalde çalıştırarak bunu ayarlayabilirsiniz:
 
