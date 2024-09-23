@@ -1,5 +1,4 @@
 #!/bin/bash
-DEBIAN_FRONTEND=noninteractive sudo apt install -y openssh-server
 
 # 1. Sistem güncellemesi ve yükseltme
 sudo apt update && sudo apt upgrade -y
