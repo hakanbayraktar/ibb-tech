@@ -1,61 +1,60 @@
 #!/bin/bash
 
-# Renkli mesajlar için değişkenler
+# Variables for colored messages
 PURPLE='\033[0;35m'
-NC='\033[0m' # Renk yok
+NC='\033[0m' # No color
 
-# Paket dizinini güncelle ve gerekli paketleri kur
-echo -e "${PURPLE}Paket dizini güncelleniyor ve gerekli paketler kuruluyor...${NC}"
+# Update the package directory and install the necessary packages
+echo -e "${PURPLE}Updating package directory and installing required packages...${NC}"
 sudo apt update
 sudo apt install -y openjdk-17-jdk maven
 
-# Jenkins depo anahtarını indir
-echo -e "${PURPLE}Jenkins depo anahtarı indiriliyor...${NC}"
+# Download the Jenkins repository key
+echo -e "${PURPLE}Downloading Jenkins repository key...${NC}"
 sudo wget -O /usr/share/keyrings/jenkins-keyring.asc \
   https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key
 
-# Jenkins deposunu ekle
-echo -e "${PURPLE}Jenkins deposu ekleniyor...${NC}"
+# Add the Jenkins repository
+echo -e "${PURPLE}Adding Jenkins repository...${NC}"
 echo deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] \
   https://pkg.jenkins.io/debian-stable binary/ | sudo tee \
   /etc/apt/sources.list.d/jenkins.list > /dev/null
 
-# Paket dizinini tekrar güncelle
-echo -e "${PURPLE}Paket dizini güncelleniyor...${NC}"
+# Update the package directory again
+echo -e "${PURPLE}Updating package directory...${NC}"
 sudo apt update
 
-# Jenkins'i kur
-echo -e "${PURPLE}Jenkins kuruluyor...${NC}"
+# Install Jenkins
+echo -e "${PURPLE}Installing Jenkins...${NC}"
 sudo apt install -y jenkins
 
-# Jenkins servisini başlat
-echo -e "${PURPLE}Jenkins servisi başlatılıyor...${NC}"
+# Start the Jenkins service
+echo -e "${PURPLE}Starting Jenkins service...${NC}"
 sudo systemctl start jenkins
 
-# Servisin başlaması için bekle
+# Wait for the service to start
 sleep 10
 
-# Başlangıç admin parolasını al
+# Retrieve the initial admin password
 if [ -f /var/lib/jenkins/secrets/initialAdminPassword ]; then
     INITIAL_PASSWORD=$(sudo cat /var/lib/jenkins/secrets/initialAdminPassword)
 
-    # Giriş bilgilerini göster
+    # Display the login information
     clear
     cat << EOF
 ===============================
-Jenkins Kurulumu Tamamlandı!
+Jenkins Installation Completed!
 ===============================
 
-Jenkins Dashboard'a erişmek için:
+To access the Jenkins Dashboard:
 
     http://$(curl -s ifconfig.me):8080
 
-Giriş bilgileri:
+Login information:
 
-Parola: ${INITIAL_PASSWORD}
+Password: ${INITIAL_PASSWORD}
 
 EOF
 else
-    echo -e "${PURPLE}initialAdminPassword dosyası bulunamadı. Jenkins düzgün bir şekilde başlatılmamış olabilir.${NC}"
+    echo -e "${PURPLE}initialAdminPassword file not found. Jenkins may not have started properly.${NC}"
 fi
-
