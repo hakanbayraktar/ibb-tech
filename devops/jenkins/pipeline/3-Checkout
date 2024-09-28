@@ -1,0 +1,15 @@
+pipeline{
+    agent any
+    stages{
+        stage('checkout stage'){
+            steps{
+                checkout scmGit(branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/hakanbayraktar/petclinic-java.git']])
+            }
+        }
+        stage('Contents'){
+            steps{
+                sh 'ls'
+            }
+        }
+    }
+}

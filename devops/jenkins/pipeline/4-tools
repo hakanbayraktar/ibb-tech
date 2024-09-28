@@ -1,0 +1,18 @@
+pipeline{
+    agent any
+    tools {
+        maven 'Maven'
+    }
+    stages{
+        stage('checkout satge'){
+            steps{
+                checkout scmGit(branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/hakanbayraktar/petclinic-java.git']])
+            }
+        }
+        stage('Build project'){
+            steps{
+                sh 'mvn compile'
+            }
+        }
+    }
+}
