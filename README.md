@@ -25,5 +25,6 @@ Bu proje kapsamında şunları bulabilirsiniz:
 📺 [YouTube oynatma listesine buradan ulaşabilirsiniz](https://www.youtube.com/watch?v=P_PCGvJsN6I&list=PL2qLbHVhA--JULW6GGzrlRrT9dewA1L49)
 
 ### 🛠️ Sistem & Network Atölyesi
-
-📺 [YouTube linki](https://www.youtube.com/watch?v=hmC1CxQKcFE)
+📺 [30-Eylül YouTube linki](https://www.youtube.com/watch?v=hmC1CxQKcFE)
+📺 [7-Ekim YouTube linki](https://www.youtube.com/watch?v=_mdY6m3XAQU)
+📺 [14-Ekim YouTube linki](https://www.youtube.com/watch?v=UPM2BIPgu10) 
