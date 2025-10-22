@@ -28,3 +28,4 @@ Bu proje kapsamında şunları bulabilirsiniz:
 📺 [30-Eylül YouTube linki](https://www.youtube.com/watch?v=hmC1CxQKcFE)
 📺 [7-Ekim YouTube linki](https://www.youtube.com/watch?v=_mdY6m3XAQU)
 📺 [14-Ekim YouTube linki](https://www.youtube.com/watch?v=UPM2BIPgu10) 
+📺 [21-Ekim YouTube linki](https://www.youtube.com/live/ZumkkW7xdy4)
